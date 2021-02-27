@@ -5,7 +5,7 @@ module.exports = app => {
 
     const encryptPassword = password => {
         const salt = bcrypt.genSaltSync(10)
-        return bcrypt.hash(password, salt)
+        return bcrypt.hashSync(password, salt)
     }
 
     const save = async (req, res) => {
@@ -41,14 +41,14 @@ module.exports = app => {
         } else {
             app.db('users')
                 .insert(user)
-                .then(_ => res.send(204))
+                .then(users => res.json(users))
                 .catch(err => res.status(500).send(err))
         }
     }
     const get = (req, res) => {
         app.db('users')
             .select('id', 'name', 'email', 'admin')
-            .then(users => res.json(users))
+            .then(user => res.json(user))
             .catch(err => res.status(500).send(err))
     }
 
