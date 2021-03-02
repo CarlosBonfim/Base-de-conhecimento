@@ -1,21 +1,21 @@
 module.exports = app => {
-    const {existsOrError, notExistsOrError} = app.api.validation
+    const { existsOrError, notExistsOrError } = app.api.validation
 
-    const save = (req,res) => {
-        const category = {...req.body}
-        if(req.params.id) category.id = req.params.id
+    const save = (req, res) => {
+        const category = { ...req.body }
+        if (req.params.id) category.id = req.params.id
 
-        try{
+        try {
             existsOrError(category.name, 'Nome nao informado')
         }
-        catch(msg){
+        catch (msg) {
             return res.status(400).send(msg)
         }
 
-        if(category.id){
+        if (category.id) {
             app.db('categories')
                 .update(category)
-                .where({id: category.id})
+                .where({ id: category.id })
                 .then(_ => res.status(500).send(err))
                 .catch(err => res.status(500).send(err))
         } else {
@@ -25,6 +25,27 @@ module.exports = app => {
                 .catch(err => res.status(500).send(err))
         }
     }
-    
+    const remove = async (req, res) => {
+        try {
+            existsOrError(req.params.id, 'Codigo de categoria nao informado')
+
+            const subcategory = await app.db('categories')
+                .where({ parentId: req.params.id })
+
+            notExistsOrError(subcategory, 'Categoria possui subcategorias.')
+
+            const articles = await app.db('articles')
+                .where({categoryId: req.params.id})
+
+            notExistsOrError(articles, 'Essa categoria possui artigos inseridos')
+
+            const rowsDeleted = await app.db('categories')
+                .where({id: req.params.id}).del()
+            existsOrError(rowsDeleted, 'Categoria nao inforamda.')    
+            res.status(204).send()
+        }catch(msg){
+            res.status(400).send(msg)
+        }
+    }
 
 }
