@@ -16,11 +16,12 @@ export default {
     },
     computed: {
         icon(){
-            return "fa-angle-left"
+            return this.$store.state.isMenuVisible ? "fa-angle-left" : "fa-angle-down"
         }
     },
     methods: {
         toogleMenu(){
+            this.$store.commit('toggleMenu')
             
         }
     }
@@ -62,6 +63,6 @@ export default {
     }
     header.header > a.toogle:hover{
         background-color: rgba(0, 0, 0,0.2);
-        
+
     }
 </style>
