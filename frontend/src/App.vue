@@ -1,6 +1,6 @@
 <template>
 	<div id="app" :class="{'hide-menu': !isMenuVisible}">
-		<Header title="Base de conhecimento" :hideToogle="false"/>
+		<Header title="Base de conhecimento" :hideToogle="false" :hideUseDropdown="false"/>
 		<Menu />
 		<Content/>
 		<Footer />
@@ -36,7 +36,7 @@ export default {
 		height: 100vh;
 		display: grid;
 
-		grid-template-rows: 40px 1fr 35px;
+		grid-template-rows: 40px 1fr 30px;
 		grid-template-columns: 200px 1fr;
 		grid-template-areas: 
 			"header header"
