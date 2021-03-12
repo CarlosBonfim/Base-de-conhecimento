@@ -1,6 +1,6 @@
 <template>
   <footer class="footer">
-      <span>Copiyright <strong>Cod3r</strong> © 2015-2021</span>
+      <span>Copyright <strong>Cod3r</strong> © 2015-2021</span>
   </footer>
 </template>
 
@@ -15,7 +15,7 @@ export default {
         grid-area: footer;
         background-color: #DDD;
         color: #333;
-
+        font-size: 0.91rem;
         display: flex;
         align-items: center;
         justify-content: flex-end;
