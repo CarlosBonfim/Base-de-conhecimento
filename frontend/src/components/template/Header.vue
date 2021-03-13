@@ -44,11 +44,13 @@ export default {
         
     }
     .title{
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         color: #fff;
+        padding-top: 0.5rem;
         font-weight: 100;
         flex-grow: 1;
         text-align: center; 
+        align-items: center;
     }
     .title a{
         color:#fff;
