@@ -64,7 +64,8 @@ export default {
 
         flex-wrap: wrap;
         visibility: hidden;
-        transition: visibility 0s, opacity 2s linear;
+        opacity: 0;
+        transition: visibility 0s, opacity 0.5s linear;
         
     }
     /* nesse caso o primeiro aplica regra no segundo */
