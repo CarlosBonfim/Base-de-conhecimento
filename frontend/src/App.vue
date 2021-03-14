@@ -18,7 +18,7 @@ import Footer from "@/components/template/Footer"
 export default {
 	name: "App",
 	components: { Header, Menu, Content, Footer},
-	computed: mapState(['isMenuVisible'])
+	computed: mapState(['isMenuVisible'])//monitora o estado em store.js
 }
 </script>
 
