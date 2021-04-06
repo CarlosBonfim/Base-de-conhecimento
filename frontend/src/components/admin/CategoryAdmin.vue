@@ -3,15 +3,34 @@
     <b-form>
       <input id="category_id" type="hidden" v-model="category.id" />
       <b-row>
-        <b-col md="6" sm="12">
+        <b-col xs="12">
           <b-form-group label="Categoria" label-for = "category-name">
             <b-form-input id="category.name" type="text" v-model="category.name" required placeholder="Insira a Categoria" :readonly="mode === 'remove' "></b-form-input>
           </b-form-group>
         </b-col>
       </b-row>
+
+      <b-row>
+        <b-col xs= "12">
+          <b-button variant="primary" v-if="mode === 'save'" @click="save">Salvar</b-button>
+          <b-button variant="danger" v-if="mode === 'remove'" @click="remove">Excluir</b-button>
+          <b-button @click="reset" class="ml-2">Cancelar</b-button>
+        </b-col>
+      </b-row>
+        <hr>
+      
     </b-form>
 
-    <b-table hover striped :items="this.categories" :fields="fields"></b-table>
+    <b-table hover striped :items="this.categories" :fields="fields">
+        <template slot="actions" slot-scope="data">
+          <b-button variant = "warning" @click="loadCategory(data.item)" class="mr-1 mt-1" >
+            <i class="fa fa-pencil"></i>
+          </b-button>
+          <b-button variant = "danger" @click="loadCategory(data.item,'remove')" class="mr-1 mt-1">
+            <i class="fa fa-trash"></i>
+          </b-button>
+        </template>
+    </b-table>    
   </div>
 </template>
 
@@ -47,9 +66,9 @@ export default {
       this.loadCategories()
     },
     save() {
-      const method = this.category.id ? "put" : "save"
-      const id = this.category.id ? `/${id}` : ""
-      axios[method](`${baseApiUrl}/users${id}`, this.category)
+      const method = this.category.id ? 'put' : 'post'
+      const id = this.category.id ? `/${id}` : ''
+      axios[method](`${baseApiUrl}/categories${id}`, this.category)
         .then(() => {
           this.$toasted.global.defaultSuccess()
           this.reset()
@@ -68,7 +87,7 @@ export default {
     },
     loadCategory(category, mode = 'save'){
       this.mode = mode
-      this.user = {...user}
+      this.category = {...category}
     }
   },
 
