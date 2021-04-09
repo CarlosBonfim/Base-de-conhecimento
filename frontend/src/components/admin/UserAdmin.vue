@@ -96,9 +96,9 @@ export default {
       remove(){
         const id = this.user.id
         axios.delete(`${baseApiUrl}/users/${id}`)
-        .then(() => {
-          this.$toasted.global.defaultSuccess()
-          .this.reset()
+          .then(() => {
+            this.$toasted.global.defaultSuccess()
+            this.reset()
         })
         .catch(showError)
       },
