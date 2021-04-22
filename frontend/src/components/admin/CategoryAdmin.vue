@@ -35,17 +35,17 @@ export default {
   name: "CategoryAdmin",
   data: function () {
     return {
-      mode: "save",
-      category: {},
-      categories: [],
-      selected: "null",
-      fields: [
-        { key: "id", label: "Código", sortable: true },
-        { key: "name", label: "Nome", sortable: true },
-        { key: "parentId", label: "Categoria Pai", sortable: true },
-        { key: "path", label: "Caminho", sortable: true },
-        { key: "actions", label: "Ações", sortable: true },
-      ],
+        mode: "save",
+        category: {},
+        categories: [],
+        selected: "null",
+        fields: [
+            { key: "id", label: "Código", sortable: true },
+            { key: "name", label: "Nome", sortable: true },
+            { key: "parentId", label: "Categoria Pai", sortable: true },
+            { key: "path", label: "Caminho", sortable: true },
+            { key: "actions", label: "Ações", sortable: true },
+        ],
     }
   },
   methods: {
@@ -60,14 +60,12 @@ export default {
     },
     reset() {
       this.mode = "save"
-      this.category.name = ""
-      this.category.parentId = ""
-      this.categories = {}
+      this.category = {}
       this.loadCategories()
     },
     save() {
       const method = this.category.id ? "put" : "post"
-      const id = this.category.id ? `/${id}` : ""
+      const id = this.category.id ? `/${this.category.id}` : ""
       axios[method](`${baseApiUrl}/categories${id}`, this.category)
         .then(() => {
           this.$toasted.global.defaultSuccess()

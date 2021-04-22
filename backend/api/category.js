@@ -4,15 +4,14 @@ module.exports = app => {
     const save = (req, res) => {
         const category = {
             id: req.body.id,
-            parentId: req.body.parentId,
-            name: req.body.name
+            name: req.body.name,
+            parentId: req.body.parentId
         }
         if (req.params.id) category.id = req.params.id
 
         try {
             existsOrError(category.name, 'Nome nao informado')
-        }
-        catch (msg) {
+        }catch (msg) {
             return res.status(400).send(msg)
         }
 
@@ -20,7 +19,7 @@ module.exports = app => {
             app.db('categories')
                 .update(category)
                 .where({ id: category.id })
-                .then(_ => res.status(204).send(err))
+                .then(_ => res.status(204).send())
                 .catch(err => res.status(500).send(err))
         } else {
             app.db('categories')
