@@ -21,7 +21,7 @@ module.exports = app => {
                 .update(article)
                 .where({ id: article.id })
                 .then(_ => res.status(204).send())
-                .catch(err => res.stsatus(500).send(err))
+                .catch(err => res.status(500).send(err))
         } else {
             app.db('articles')
                 .insert(article)
@@ -47,7 +47,7 @@ module.exports = app => {
         }
     }
 
-    const limit = 10 // usado para paginação
+    const limit = 3 // usado para paginação
    
     const get = async (req, res) => {
         const page = req.query.page || 1
