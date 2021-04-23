@@ -3,8 +3,8 @@ import VueRouter from 'vue-router'
 
 import Home from '@/components/home/Home'
 import AdminPages from '@/components/admin/AdminPages'
-import ArticlesByCategory from "@/components/article/ArticlesByCategory.vue"
-import ArticlesById from '@/components/article/ArticlesById'
+import ArticlesByCategory from "@/components/article/ArticlesByCategory"
+import ArticleById from "@/components/article/ArticleById"
 Vue.use(VueRouter)
 
 const routes = [{// Onde cria-se as rotas
@@ -22,7 +22,7 @@ const routes = [{// Onde cria-se as rotas
 },{
     name: 'articleById',
     path: '/articles/:id',
-    component: ArticlesById
+    component: ArticleById
 }]
 export default new VueRouter({ // vai instanciar o vue router
     mode: 'history',
