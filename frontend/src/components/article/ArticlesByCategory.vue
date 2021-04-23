@@ -7,11 +7,11 @@
 <script>
 import { baseApiUrl } from "@/global";
 import axios from "axios";
-import PageTitle from ".../template/PageTitle";
+import PageTitle from '../template/PageTitle'
 
 export default {
-  name: "ArticlesByCategories",
-  components: { PageTitle },
+  name: "ArticlesByCategory",
+  components: {PageTitle},
   data: function () {
     return { 
         category: {}, 
