@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 
 import Home from '@/components/home/Home'
 import AdminPages from '@/components/admin/AdminPages'
-import ArticlesByCategory from "@/components/admin/ArticlesByCategory"
+import ArticlesByCategory from "@/components/article/ArticlesByCategory.vue"
 
 Vue.use(VueRouter)
 
@@ -24,3 +24,4 @@ export default new VueRouter({ // vai instanciar o vue router
     mode: 'history',
     routes: routes
 })
+
