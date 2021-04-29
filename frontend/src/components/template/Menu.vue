@@ -92,6 +92,11 @@ export default {
         width: 100%;
         background: transparent;
     }
+    .tree-anchor{
+        padding: 0px;
+        margin-left: 0px;
+        width: 100px;
+    }
     .tree-filter-empty{
         color: #CCC;
         margin-left: 5px;
