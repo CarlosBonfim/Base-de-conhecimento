@@ -70,6 +70,7 @@ export default {
     }
     .tree-arrow.has-child{
         filter: brightness(2);
+        width: 1.3rem;
     }
     .menu .menu-filter{
         display: flex;
@@ -92,6 +93,9 @@ export default {
         outline: 0;
         width: 100%;
         background: transparent;
+    }
+    .menu .tree{
+        width: 100%;
     }
     .tree-anchor{
         padding: 0px;
