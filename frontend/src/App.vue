@@ -1,7 +1,7 @@
 <template>
-	<div id="app" :class="{'hide-menu': !isMenuVisible}">
-		<Header title="Base de conhecimento" :hideToogle="false" :hideUseDropdown="false"/>
-		<Menu />
+	<div id="app" :class="{'hide-menu': !isMenuVisible || !user}">
+		<Header title="Base de conhecimento" :hideToogle="!user" :hideUserDropdown="!user"/>
+		<Menu v-if="user"/>
 		<Content/>
 		<Footer />
 	</div>
@@ -18,7 +18,7 @@ import Footer from "@/components/template/Footer"
 export default {
 	name: "App",
 	components: { Header, Menu, Content, Footer},
-	computed: mapState(['isMenuVisible'])//monitora o estado em store.js
+	computed: mapState(['isMenuVisible', 'user'])//monitora o estado em store.js
 }
 </script>
 
