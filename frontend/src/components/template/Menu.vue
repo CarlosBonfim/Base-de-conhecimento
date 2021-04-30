@@ -56,6 +56,7 @@ export default {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
+        width: 100%;
     }
     .menu a,
     .menu a:hover{
