@@ -8,8 +8,8 @@
             <b-form-group label="Descrição" label-for="article-description">
                 <b-form-input id="article.description" type="text" v-model="article.description" required placeholder="Insira a descrição do artigo do Artigo" :readonly="mode === 'remove'"/>
             </b-form-group>
-            <b-form-group v-if="mode === 'save'" label="Imagem (URL)" label-for="article-imageURL">
-                <b-form-input id="article.imageURL" type="text" v-model="article.imageURL" required placeholder="Insira a URL da imagem" :readonly="mode === 'remove'"/>
+            <b-form-group v-if="mode === 'save'" label="Imagem (URL)" label-for="article-imageUrl">
+                <b-form-input id="article.imageUrl" type="text" v-model="article.imageUrl" required placeholder="Insira a URL da imagem" :readonly="mode === 'remove'"/>
             </b-form-group>
 
             <b-form-group v-if="mode === 'save'" label="Categoria:" label-for="article-categoryId">
