@@ -62,7 +62,7 @@ export default {
       users: [],
       page: 1,
       limit: 0,
-      coutn: 0,
+      count: 0,
       selected: "null",
       fields: [
         { key: "id", label: "Código", sortable: true },
